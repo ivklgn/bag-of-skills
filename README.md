@@ -4,38 +4,70 @@
 
 # ai-kit
 
-Subagents and skills for **Claude Code** and the **OpenAI Codex CLI**, from one shared source. By Ivan K. (<https://github.com/ivklgn>)
+A flat collection of subagents and skills for **Claude Code**. By Ivan K. (<https://github.com/ivklgn>)
 
-## Install
-
-**Claude Code**
-
-```bash
-/plugin marketplace add ivklgn/ai-kit
-/plugin install ai-kit
-```
-
-**Codex CLI** — requires Codex CLI v0.117.0+.
-
-```bash
-codex plugin marketplace add ivklgn/ai-kit
-codex
-# then run /plugins, open AI Kit, select Install plugin
-```
-
-Local dev: `claude --plugin-dir .`
+- `agents/` — one `<name>.md` per subagent.
+- `skills/` — one directory per skill, each with a `SKILL.md`.
 
 ## Agents
 
-`android-developer` · `architect-reviewer` · `bdd-specialist` · `business-analyst` · `cli-developer` · `css-developer` · `deployment-engineer` · `documentation-developer` · `documentation-writer` · `frontend-developer` · `frontend-figma-layout-designer` · `golang-pro` · `instantdb-expert` · `ios-developer` · `js-perf-analyzer` · `llm-architect` · `mcp-developer` · `npm-updater` · `platform-engineer` · `playwright-e2e` · `postgres-pro` · `prompt-engineer` · `python-pro` · `react-code-optimizer` · `react-specialist` · `reatom-guru` · `security-auditor` · `security-engineer` · `typescript-pro` · `unit-test-master`
+| Agent | For |
+|-------|-----|
+| `android-developer` | Native Android (Kotlin, Jetpack Compose, AndroidX); detects SDK/AGP versions and UI stack first. |
+| `architect-reviewer` | Macro-level architecture review: service boundaries, scalability, coupling, tech-stack choices. Advises, doesn't implement. |
+| `bdd-specialist` | Gherkin scenarios and acceptance tests; detects the BDD runner (Cucumber, Behave, pytest-bdd, godog, …). |
+| `business-analyst` | Requirements analysis, specs, user stories, acceptance criteria, product docs. |
+| `cli-developer` | Command-line tools: argument parsing, prompts, shell completions, cross-platform distribution. |
+| `css-developer` | CSS/SCSS: layout, responsive behavior, animations, theming; modern-feature research and cleanup. |
+| `deployment-engineer` | CI/CD and deployment strategies (blue-green, canary, rolling), GitOps, DORA metrics. |
+| `documentation-developer` | Building docs sites (Starlight, Docusaurus, VitePress): SSG/SSR, components, styling. |
+| `documentation-writer` | Developer-facing content: concept docs, guides, tutorials, references. Focuses on words and structure. |
+| `frontend-developer` | Cross-cutting frontend lead; detects framework/stack. For narrow work, prefer the focused agents. |
+| `frontend-figma-layout-designer` | Turns Figma-exported HTML/CSS into clean React components with organized CSS/SCSS. |
+| `golang-pro` | High-performance Go: concurrency, cloud-native microservices, idiomatic patterns. |
+| `instantdb-expert` | InstantDB realtime database: code generation, reviews, type-safe patterns. |
+| `ios-developer` | Native iOS (Swift, SwiftUI, UIKit interop); detects deployment target and Swift version first. |
+| `js-perf-analyzer` | JS/TS performance and memory-leak detection; V8/libuv internals, bundle regressions, Node tuning. |
+| `llm-architect` | Production LLM systems: inference serving, RAG, fine-tuning, multi-model orchestration, cost. |
+| `mcp-developer` | MCP servers and clients: build, debug, optimize. |
+| `npm-updater` | Checks npm updates, reads changelogs, runs security audits, writes update reports. |
+| `platform-engineer` | Internal developer platforms: self-service infra, Backstage portals, golden paths, GitOps. |
+| `playwright-e2e` | Playwright E2E: write, review, debug, and optimize tests. |
+| `postgres-pro` | PostgreSQL design and performance: relational modeling, normalization, internals. |
+| `prompt-engineer` | Production prompt design: A/B testing, eval frameworks, token/cost optimization. |
+| `python-pro` | Idiomatic, type-safe Python; detects version, package manager, toolchain first. |
+| `react-code-optimizer` | Fixes re-renders, duplicates, and component splitting per the project's React version. |
+| `react-specialist` | Modern React patterns per the detected version: performance, hooks, server components. |
+| `reatom-guru` | React + Reatom state manager: write, review, refactor by Reatom best practices. |
+| `security-auditor` | Code/infra vulnerability audit (OWASP Top 10, CVEs), threat modeling. |
+| `security-engineer` | DevSecOps, zero-trust, compliance (SOC2, ISO27001), CI/CD security. |
+| `typescript-pro` | Advanced TypeScript: type system, full-stack, build optimization. |
+| `unit-test-master` | Isolated, deterministic unit tests; detects language and framework. Unit scope only. |
 
 ## Skills
 
-`12-factor-apps` · `ask-me` · `audit-website` · `can-i-use` · `code-reviewer` · `compatibility-audit` · `explain-branch-changes` · `humanizer` · `humanizer-ru` · `jsdoc` · `load-branch-changes` · `nextjs-developer` · `recap` · `reset-permissions` · `review-golang` · `seo-audit` · `simplify-code-comments` · `test-health-check` · `update-golang-deps` · `update-node-deps`
-
-## Commands
-
-`/ai-kit:12-factor-apps` · `/ai-kit:ask-me` · `/ai-kit:can-i-use` · `/ai-kit:compatibility-audit` · `/ai-kit:humanizer` · `/ai-kit:humanizer-ru` · `/ai-kit:jsdoc` · `/ai-kit:load-branch-changes` · `/ai-kit:recap` · `/ai-kit:reset-permissions` · `/ai-kit:review-golang` · `/ai-kit:simplify-code-comments` · `/ai-kit:test-health-check` · `/ai-kit:update-golang-deps` · `/ai-kit:update-node-deps`
+| Skill | For |
+|-------|-----|
+| `12-factor-apps` | 12-Factor App compliance analysis of a codebase. |
+| `ask-me` | Turns the current plan into a list of what only you can supply — decisions, facts, credentials, real-world actions. |
+| `audit-website` | Automated technical site audit via the squirrelscan CLI (230+ rules, health score, broken links, meta tags). |
+| `can-i-use` | Browser support for web features against the project's browserslist targets; Baseline status, fallbacks. |
+| `code-reviewer` | Diff/file review for bugs, security issues, code smells, and N+1; structured, prioritized report. |
+| `compatibility-audit` | Whether a change fits across contract, conventions, completeness, and runtime; per-axis verdict and migration path. |
+| `explain-branch-changes` | Explains the branch's changes in plain product language for a non-technical audience. |
+| `humanizer` | Removes signs of AI-generated writing (English); based on Wikipedia's "Signs of AI writing". |
+| `humanizer-ru` | Очеловечивание русскоязычного текста; убирает следы AI-генерации. |
+| `jsdoc` | Write/fix/review JSDoc for JS/TS; detects typed-JSDoc vs TypeScript vs a doc generator. |
+| `load-branch-changes` | Loads the branch diff, commits, and changed files into session context. |
+| `nextjs-developer` | Next.js App Router work: server components/actions, route handlers, middleware, metadata. |
+| `recap` | Dense five-slot session status (goal, done, current step, open items, next step) in the session's language. |
+| `reset-permissions` | Resets accumulated permissions in `.claude/settings.local.json`. |
+| `review-golang` | Comprehensive Go review on git-changed files via the `golang-pro` agent plus Context7 docs. |
+| `seo-audit` | Manual, strategic SEO review (crawlability, on-page, content, keywords); no tooling required. |
+| `simplify-code-comments` | Keeps comments signal-only in any language; deletes noise, preserves doc/why comments. |
+| `test-health-check` | Proves a test genuinely guards its behavior via targeted fault probes, instead of trusting coverage. |
+| `update-golang-deps` | Audits and updates Go modules (go toolchain + govulncheck); patch auto, minor/major confirmed. |
+| `update-node-deps` | Audits and updates Node deps (npm/pnpm/yarn/bun); patch auto, minor/major confirmed. |
 
 ## Credits
 

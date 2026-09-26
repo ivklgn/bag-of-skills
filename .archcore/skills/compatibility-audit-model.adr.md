@@ -31,7 +31,7 @@ Keeping the contract-only skill and adding a second skill for integration qualit
 
 ## Consequences
 
-The skill is renamed `compatibility-audit` — no artifact noun in the name, so it triggers on any unit with a boundary. This is a breaking rename: `/ai-kit:module-compatibility-audit` no longer exists for anyone who already installed the plugin, and the directory, command, README, license map, and `plugins/ai-kit` mirror all move with it.
+The skill is named `compatibility-audit` — no artifact noun in the name, so it triggers on any unit with a boundary. (It was renamed from the earlier `module-compatibility-audit`.)
 
 Scope resolution is delegated to a bundled `scripts/resolve_scope.sh`, which distinguishes three modes — git changes, path-scoped changes, and a path snapshot with no pending edits — so a path with no diff is audited as "is this in good standing" rather than refused.
 
